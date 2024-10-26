@@ -6,7 +6,7 @@
  *
  * @author Alumne
  */
-package Usuari;
+package models;
 
 public class Usuari {
     private int Id;
