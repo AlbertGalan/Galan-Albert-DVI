@@ -15,6 +15,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
      */
     public PantallaPrincipal() {
         initComponents();
+        
+        setSize(800,600); // FIXE
+        setResizable(false);// Evitar reedimensionament
+        setLocationRelativeTo(null); //Que estigui centrat per pantalla
+        setLayout(null); // Es layout en null
     }
 
     /**
