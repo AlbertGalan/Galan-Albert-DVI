@@ -5,6 +5,7 @@
 package packagenou.projectegalan;
 import recursos.DataAcces;
 import at.favre.lib.crypto.bcrypt.BCrypt;
+import javax.swing.JOptionPane;
 import models.Usuari;
 /**
  *
@@ -75,6 +76,14 @@ public class FrameLogIn extends javax.swing.JFrame {
             char[] passwordToVerify = txtPasswordLogin.getPassword();
             String userPasswordHashInDatabase = usuari.getPasswordHash();
             var result = BCrypt.verifyer().verify(passwordToVerify, userPasswordHashInDatabase);
+            if (result.verified) {
+                JOptionPane.showMessageDialog(this, "Login succesful. Welcome " + usuari.getNom() + "!");
+            }
+            else {
+                JOptionPane.showMessageDialog(this, "ERROR: Te deixaré ses galtes que pareixeran dos pambolis, tens sa contrassenya incorrecte");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "ERROR: Qui ets tu, Xac Norris? No ets per enlloc");
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
