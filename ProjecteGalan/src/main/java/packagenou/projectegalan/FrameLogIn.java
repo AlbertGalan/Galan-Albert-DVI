@@ -3,13 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package packagenou.projectegalan;
-
+import recursos.DataAcces;
+import at.favre.lib.crypto.bcrypt.BCrypt;
+import models.Usuari;
 /**
  *
  * @author Albert
  */
 public class FrameLogIn extends javax.swing.JFrame {
-
+    private DataAcces da = new DataAcces();
     /**
      * Creates new form FrameLogIn
      */
@@ -26,21 +28,55 @@ public class FrameLogIn extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        txtEmailLogin = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        btnLogin = new javax.swing.JButton();
+        txtPasswordLogin = new javax.swing.JPasswordField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(600, 600));
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(txtEmailLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 110, -1));
+
+        jLabel1.setText("Usuari:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+
+        jLabel2.setText("Contrassenya:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+
+        btnLogin.setText("LOGIN");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 80, 30));
+        getContentPane().add(txtPasswordLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 110, -1));
+
+        jLabel3.setText("INICIA SESSIÓ");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
+
+        jLabel4.setText("per estar... MAMADÍSIM");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        // TODO add your handling code here:
+        //DataAcces da = new DataAcces();
+        Usuari usuari = da.getUsuari(txtEmailLogin.getText());
+        if (usuari != null) {
+            //Comprovar password
+            char[] passwordToVerify = txtPasswordLogin.getPassword();
+            String userPasswordHashInDatabase = usuari.getPasswordHash();
+            var result = BCrypt.verifyer().verify(passwordToVerify, userPasswordHashInDatabase);
+        }
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +114,12 @@ public class FrameLogIn extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLogin;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JTextField txtEmailLogin;
+    private javax.swing.JPasswordField txtPasswordLogin;
     // End of variables declaration//GEN-END:variables
 }

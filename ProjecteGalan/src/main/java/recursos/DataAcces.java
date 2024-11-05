@@ -60,4 +60,32 @@ public class DataAcces {
         
         return usuaris;
     }
+public Usuari getUsuari(String email) {
+        Usuari user = null;
+        String sql = "SELECT * FROM Usuaris WHERE Email=?";
+
+        Connection connection = getConnection();
+        try {
+            PreparedStatement selectStatement = connection.prepareStatement(sql);
+            selectStatement.setString(1, email);
+            ResultSet resultSet = selectStatement.executeQuery();
+            while (resultSet.next()) {
+                user = new Usuari();
+                user.setId(resultSet.getInt("Id"));
+                user.setNom(resultSet.getString("Nom"));
+                user.setEmail(resultSet.getString("Email"));
+                user.setPasswordHash(resultSet.getString("PasswordHash"));
+                //user.setFoto(resultSet.getBytes("Foto"));
+                user.setInstructor(resultSet.getBoolean("IsInstructor"));
+
+            }
+
+            selectStatement.close();
+            connection.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DataAcces.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return user;
+    }
 }
