@@ -33,43 +33,50 @@ public class FramePrincipal extends javax.swing.JFrame {
         Labelgym = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 600));
+        setPreferredSize(new java.awt.Dimension(750, 477));
         setResizable(false);
-        setSize(new java.awt.Dimension(800, 600));
+        setSize(new java.awt.Dimension(750, 477));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BotoLogin.setText("LOGIN");
+        BotoLogin.setText("Comprate una moto que nos vamos para Lluc");
         BotoLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotoLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(BotoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 220, 210, 120));
+        getContentPane().add(BotoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, 300, 120));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/En_Ataulfo.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Albert\\Documents\\NetBeansProjects\\ActivitatsDVI\\Galan-Albert-DVI\\ProjecteGalan\\src\\main\\java\\recursos\\imatges\\TomeuQuelymesfort.png")); // NOI18N
         jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 290, 308));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 330));
 
         Labelgym.setForeground(new java.awt.Color(255, 255, 255));
-        Labelgym.setText("GIMNÀS ATAULFO");
+        Labelgym.setText("Tomeu Quely, l'amo des gimnàs i bicampió de Mr.Olimpia");
         Labelgym.setPreferredSize(new java.awt.Dimension(1000, 1000));
-        Labelgym.setFont(new Font("Arial", Font.BOLD, 30));
-        getContentPane().add(Labelgym, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, 44));
+        Labelgym.setFont(new Font("Arial", Font.BOLD, 15));
+        getContentPane().add(Labelgym, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 620, 60));
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("www.ataulfogym.com");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 500, 193, 47));
+        jLabel3.setText("www.mallorcamitjagym.com");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 193, 47));
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Un gimnàs per fer poble!!");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 162, 29));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, 150, 29));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Albert\\Documents\\NetBeansProjects\\ActivitatsDVI\\Galan-Albert-DVI\\ProjecteGalan\\src\\main\\resources\\fondo3 (1).jpg")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Albert\\Documents\\NetBeansProjects\\ActivitatsDVI\\Galan-Albert-DVI\\ProjecteGalan\\src\\main\\java\\recursos\\imatges\\MiddleLogo (1).jpeg")); // NOI18N
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, 300, 200));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Albert\\Documents\\NetBeansProjects\\ActivitatsDVI\\Galan-Albert-DVI\\ProjecteGalan\\src\\main\\java\\recursos\\imatges\\fondo3 (1).jpg")); // NOI18N
         jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 810, 560));
+        jLabel1.setMaximumSize(new java.awt.Dimension(710, 440));
+        jLabel1.setMinimumSize(new java.awt.Dimension(710, 440));
+        jLabel1.setPreferredSize(new java.awt.Dimension(710, 440));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -122,5 +129,6 @@ public class FramePrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
 }

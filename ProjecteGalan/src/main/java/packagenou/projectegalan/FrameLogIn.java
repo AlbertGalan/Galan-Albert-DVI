@@ -36,16 +36,19 @@ public class FrameLogIn extends javax.swing.JFrame {
         txtPasswordLogin = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 600));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(txtEmailLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 110, -1));
+        getContentPane().add(txtEmailLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 110, -1));
 
-        jLabel1.setText("Usuari:");
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Mail:");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Contrassenya:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
@@ -55,14 +58,23 @@ public class FrameLogIn extends javax.swing.JFrame {
                 btnLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 80, 30));
-        getContentPane().add(txtPasswordLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 110, -1));
+        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 80, 30));
+        getContentPane().add(txtPasswordLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 110, -1));
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("INICIA SESSIÓ");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jLabel4.setText("per estar... MAMADÍSIM");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("I podràs fer pilates amb en Matrix");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Hola guapo, has encalentit bé?");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, -1, -1));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Albert\\Documents\\NetBeansProjects\\ActivitatsDVI\\Galan-Albert-DVI\\ProjecteGalan\\src\\main\\java\\recursos\\imatges\\fondo3 (1).jpg")); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 270));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -77,10 +89,12 @@ public class FrameLogIn extends javax.swing.JFrame {
             String userPasswordHashInDatabase = usuari.getPasswordHash();
             var result = BCrypt.verifyer().verify(passwordToVerify, userPasswordHashInDatabase);
             if (result.verified) {
-                JOptionPane.showMessageDialog(this, "Login succesful. Welcome " + usuari.getNom() + "!");
+                JOptionPane.showMessageDialog(this, "Amaga sa testosterona " + usuari.getNom() + " que això pareix Melilla!");
+                FrameMenuSessio frameMenuSessio = new FrameMenuSessio(this, true);  // 'this' como parent y true para hacerlo modal
+                frameMenuSessio.setVisible(true);
             }
             else {
-                JOptionPane.showMessageDialog(this, "ERROR: Te deixaré ses galtes que pareixeran dos pambolis, tens sa contrassenya incorrecte");
+                JOptionPane.showMessageDialog(this, "ERROR: Que no pots passar batuadeu! Tens la contrassenya incorrecte!");
             }
         } else {
             JOptionPane.showMessageDialog(this, "ERROR: Qui ets tu, Xac Norris? No ets per enlloc");
@@ -128,6 +142,8 @@ public class FrameLogIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField txtEmailLogin;
     private javax.swing.JPasswordField txtPasswordLogin;
     // End of variables declaration//GEN-END:variables
