@@ -17,6 +17,9 @@ public class Intents {
     private Timestamp Inici;
     private Timestamp Fi;
     private String Video;
+    
+    private Usuari usuari;
+    private Exercicis exercici;
 
     public int getId() {
         return Id;
@@ -65,6 +68,29 @@ public class Intents {
     public void setVideo(String Video) {
         this.Video = Video;
     }
+
+    public Usuari getUsuari() {
+        return usuari;
+    }
+
+    public void setUsuari(Usuari usuari) {
+        this.usuari = usuari;
+    }
+
+    public Exercicis getExercici() {
+        return exercici;
+    }
+
+    public void setExercici(Exercicis exercici) {
+        this.exercici = exercici;
+    }
     
+    public String getExerciciNom() {
+        return exercici != null ? exercici.getNomExercici() : "Desconegut";
+    }
+    
+    public String getUsuariNom() {
+        return usuari != null ? usuari.getNom() : "Desconegut";
+    }
     
 }
