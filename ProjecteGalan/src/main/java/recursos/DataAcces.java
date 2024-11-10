@@ -64,6 +64,7 @@ public class DataAcces {
         
         return usuaris;
     }
+    
     public Review getAttemptReview(int idIntent) {
         Review review = null;
         String sql = "SELECT * FROM Review WHERE IdIntent = ?";
@@ -80,6 +81,8 @@ public class DataAcces {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            review = new Review();
+            review.setId(0);
         }
         return review;
     }
@@ -128,7 +131,34 @@ public int insertReview(Review r) {
         }
         return result;
     }
-    
+public void deleteIntent(int id) {
+    String deleteReviewSql = "DELETE FROM Review WHERE IdIntent = ?";
+    String deleteIntentSql = "DELETE FROM Intents WHERE Id = ?";
+
+    try (Connection conn = getConnection()) {
+        conn.setAutoCommit(false); // Iniciar transacció
+
+        try (PreparedStatement deleteReviewStatement = conn.prepareStatement(deleteReviewSql);
+             PreparedStatement deleteIntentStatement = conn.prepareStatement(deleteIntentSql)) {
+            
+            // Primer, eliminar les ressenyes associades amb l'intent
+            deleteReviewStatement.setInt(1, id);
+            deleteReviewStatement.executeUpdate();
+
+            // Després, eliminar l'intent
+            deleteIntentStatement.setInt(1, id);
+            deleteIntentStatement.executeUpdate();
+
+            conn.commit(); // Confirmar la transacció
+        } catch (SQLException e) {
+            conn.rollback(); // Revertir canvis en cas d'error
+            e.printStackTrace();
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+
     public int getUserId(String email) {
         String sql = "SELECT Id FROM Usuaris WHERE Email = ?";
         int id = 0;
@@ -220,6 +250,8 @@ public Usuari getUsuari(String email) {
 
     return intentsList;
 }
+
+
     public ArrayList<Intents> getIntentsByUserId(int userId) {
     ArrayList<Intents> intentsList = new ArrayList<>();
     String sql = "SELECT i.Id, i.IdExercici, i.Timestamp_Inici, i.Timestamp_Fi, i.Videofile, e.NomExercici "

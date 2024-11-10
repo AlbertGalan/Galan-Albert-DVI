@@ -109,6 +109,11 @@ public class FrameRevisarIntents extends javax.swing.JFrame {
     private void initComponents() {
 
         PanelFuncions = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         UsuarisPendents = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -118,20 +123,50 @@ public class FrameRevisarIntents extends javax.swing.JFrame {
         FondoFuncions = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1100, 490));
-        setMinimumSize(new java.awt.Dimension(1100, 490));
-        setPreferredSize(new java.awt.Dimension(1100, 490));
+        setMaximumSize(new java.awt.Dimension(947, 512));
+        setMinimumSize(new java.awt.Dimension(947, 512));
+        setPreferredSize(new java.awt.Dimension(947, 550));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PanelFuncions.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        UsuarisPendents.setBackground(new java.awt.Color(255, 255, 255));
-        UsuarisPendents.setText("Llista Usuaris pendents");
+        jButton1.setText("<- SORTIR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        PanelFuncions.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, -1, -1));
+
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        String text2 = "<html>Bernat: Mare meva Conco, al final<br>" +
+        "m'hi hauré d'apuntar a nes gimnàs.</html>";
+        jLabel4.setText(text2);
+        PanelFuncions.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 450, -1, -1));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\Albert\\Documents\\NetBeansProjects\\ActivitatsDVI\\Galan-Albert-DVI\\ProjecteGalan\\src\\main\\java\\recursos\\imatges\\MiddleLogoMesPetit.jpeg")); // NOI18N
+        jLabel8.setText("jLabel8");
+        PanelFuncions.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 430, 50, 50));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Albert\\Documents\\NetBeansProjects\\ActivitatsDVI\\Galan-Albert-DVI\\ProjecteGalan\\src\\main\\java\\recursos\\imatges\\Bernat.png")); // NOI18N
+        PanelFuncions.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, 130, 120));
+
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        String text = "<html>Conco Panareta: Ara ho veuràs<br>" +
+        "amb lo fort que vaig m'aniràn<br>" +
+        "darrera ses al·lotes, Bernat,<br>" +
+        "duum una capsa de globos<br>" +
+        "d'aquestes control sensitive.</html>";
+        jLabel1.setText(text);
+        PanelFuncions.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, -1, -1));
+
+        UsuarisPendents.setBackground(new java.awt.Color(0, 0, 0));
+        UsuarisPendents.setForeground(new java.awt.Color(255, 255, 255));
+        UsuarisPendents.setText("Llista d'Usuaris amb Valoracions Pendents");
         UsuarisPendents.setToolTipText("");
-        PanelFuncions.add(UsuarisPendents, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
+        PanelFuncions.add(UsuarisPendents, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -154,7 +189,7 @@ public class FrameRevisarIntents extends javax.swing.JFrame {
         pnlVideoPlayer.getAccessibleContext().setAccessibleName("");
 
         jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Albert\\Documents\\NetBeansProjects\\ActivitatsDVI\\Galan-Albert-DVI\\ProjecteGalan\\src\\main\\java\\recursos\\imatges\\concofort.png")); // NOI18N
-        PanelFuncions.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 240, 220));
+        PanelFuncions.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 210, 200));
 
         btnPauseResumeVideoActionPerformed.setText("Pausar/Reproduir");
         btnPauseResumeVideoActionPerformed.addActionListener(new java.awt.event.ActionListener() {
@@ -165,18 +200,12 @@ public class FrameRevisarIntents extends javax.swing.JFrame {
         PanelFuncions.add(btnPauseResumeVideoActionPerformed, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 380, 146, 48));
 
         FondoFuncions.setIcon(new javax.swing.ImageIcon("C:\\Users\\Albert\\Documents\\NetBeansProjects\\ActivitatsDVI\\Galan-Albert-DVI\\ProjecteGalan\\src\\main\\java\\recursos\\imatges\\hobbiton (1).jpg")); // NOI18N
-        FondoFuncions.setMaximumSize(new java.awt.Dimension(1100, 490));
-        FondoFuncions.setMinimumSize(new java.awt.Dimension(1100, 490));
-        FondoFuncions.setPreferredSize(new java.awt.Dimension(1100, 490));
-        PanelFuncions.add(FondoFuncions, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 490));
+        PanelFuncions.add(FondoFuncions, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 490));
 
-        getContentPane().add(PanelFuncions, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1170, 730));
+        getContentPane().add(PanelFuncions, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 490));
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -184,12 +213,18 @@ public class FrameRevisarIntents extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPauseResumeVideoActionPerformedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPauseResumeVideoActionPerformedActionPerformed
-     if (mediaPlayer.mediaPlayer().status().isPlaying()) {
-            mediaPlayer.mediaPlayer().controls().pause();
-        } else {
-            mediaPlayer.mediaPlayer().controls().play();
+      if (mediaPlayer.mediaPlayer().status().isPlaying()) {
+        mediaPlayer.mediaPlayer().controls().pause();
+    } else {
+        mediaPlayer.mediaPlayer().controls().play();
+}
     }//GEN-LAST:event_btnPauseResumeVideoActionPerformedActionPerformed
-    }
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -227,9 +262,13 @@ public class FrameRevisarIntents extends javax.swing.JFrame {
     private javax.swing.JPanel PanelFuncions;
     private javax.swing.JLabel UsuarisPendents;
     private javax.swing.JButton btnPauseResumeVideoActionPerformed;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

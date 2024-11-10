@@ -225,9 +225,13 @@ public class NouFramePrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTancarActionPerformed
 
     private void btnUsuarisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarisActionPerformed
-        FrameUsuaris frameUsuaris = new FrameUsuaris();
+        FrameUsuaris frameUsuaris = new FrameUsuaris(this);
         frameUsuaris.setVisible(true);
     }//GEN-LAST:event_btnUsuarisActionPerformed
+
+    public int getTrainer_id() {
+        return trainer_id;
+    }
 
     private void LogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogInActionPerformed
         obrirJDialogLogin();
