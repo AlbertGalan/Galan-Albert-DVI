@@ -6,6 +6,14 @@ package packagenou.projectegalan;
 
 import java.awt.CardLayout;
 import java.awt.Font;
+import java.io.File;
+import java.io.IOException;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -56,17 +64,18 @@ public class NouFramePrincipal extends javax.swing.JFrame {
 }
 
     // Aquest mètode canvia la visibilitat dels panells quan es fa login correctament
-    private void mostrarJPanel3() {
-        jPanel1.setVisible(false);
-        jPanel3.setVisible(true);
-        repaint();
-        revalidate();
-    }
+
 
     private void onLogInSuccessful() {
         // Actualitza el control isLoginDialogClosed per evitar que es torni a mostrar el login
         isLoginDialogClosed = true;
         mostrarJPanel3(); // Canvia la visibilitat dels panells
+    }
+        private void mostrarJPanel3() {
+        jPanel1.setVisible(false);
+        jPanel3.setVisible(true);
+        repaint();
+        revalidate();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -103,7 +112,7 @@ public class NouFramePrincipal extends javax.swing.JFrame {
         jPanel1.setMinimumSize(new java.awt.Dimension(770, 477));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Logo1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Albert\\Documents\\NetBeansProjects\\ActivitatsDVI\\Galan-Albert-DVI\\ProjecteGalan\\src\\main\\java\\recursos\\imatges\\MiddleLogo (1).jpeg")); // NOI18N
+        Logo1.setIcon(new ImageIcon("src\\main\\java\\recursos\\imatges\\MiddleLogo (1).jpeg"));
         jPanel1.add(Logo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, -1, 200));
 
         Labelgym.setForeground(new java.awt.Color(255, 255, 255));
@@ -116,7 +125,7 @@ public class NouFramePrincipal extends javax.swing.JFrame {
         URL1.setText("www.mallorcamitjagym.com");
         jPanel1.add(URL1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 193, 47));
 
-        Imatge1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Albert\\Documents\\NetBeansProjects\\ActivitatsDVI\\Galan-Albert-DVI\\ProjecteGalan\\src\\main\\java\\recursos\\imatges\\TomeuQuelymesfort.png")); // NOI18N
+        Imatge1.setIcon(new ImageIcon("src\\main\\java\\recursos\\imatges\\TomeuQuelymesfort.png"));
         Imatge1.setText("jLabel2");
         jPanel1.add(Imatge1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 330));
 
@@ -128,7 +137,7 @@ public class NouFramePrincipal extends javax.swing.JFrame {
         });
         jPanel1.add(LogIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, 360, 50));
 
-        Fons3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Albert\\Documents\\NetBeansProjects\\ActivitatsDVI\\Galan-Albert-DVI\\ProjecteGalan\\src\\main\\java\\recursos\\imatges\\fondo3 (1).jpg")); // NOI18N
+        Fons3.setIcon(new ImageIcon("src\\main\\java\\recursos\\imatges\\fondo3 (1).jpg"));
         Fons3.setMaximumSize(new java.awt.Dimension(770, 477));
         Fons3.setMinimumSize(new java.awt.Dimension(770, 477));
         Fons3.setPreferredSize(new java.awt.Dimension(770, 477));
@@ -167,7 +176,7 @@ public class NouFramePrincipal extends javax.swing.JFrame {
         });
         jPanel3.add(btnUsuaris, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 140, 40));
 
-        Image2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Albert\\Documents\\NetBeansProjects\\ActivitatsDVI\\Galan-Albert-DVI\\ProjecteGalan\\src\\main\\java\\recursos\\imatges\\GandalfRiguent.jpg")); // NOI18N
+        Image2.setIcon(new ImageIcon("src\\main\\java\\recursos\\imatges\\GandalfRiguent.jpg"));
         Image2.setText("jLabel2");
         jPanel3.add(Image2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 400, 330));
 
@@ -175,10 +184,10 @@ public class NouFramePrincipal extends javax.swing.JFrame {
         URL2.setText("www.mallorcamitjagym.com");
         jPanel3.add(URL2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 193, 47));
 
-        Logo2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Albert\\Documents\\NetBeansProjects\\ActivitatsDVI\\Galan-Albert-DVI\\ProjecteGalan\\src\\main\\java\\recursos\\imatges\\MiddleLogoPetit.jpeg")); // NOI18N
-        jPanel3.add(Logo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 370, -1, 100));
+        Logo2.setIcon(new ImageIcon("src\\main\\java\\recursos\\imatges\\MiddleLogoPetit.jpeg"));
+        jPanel3.add(Logo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 370, 130, 100));
 
-        Fons2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Albert\\Documents\\NetBeansProjects\\ActivitatsDVI\\Galan-Albert-DVI\\ProjecteGalan\\src\\main\\java\\recursos\\imatges\\fondo3 (1).jpg")); // NOI18N
+        Fons2.setIcon(new ImageIcon("src\\main\\java\\recursos\\imatges\\fondo3 (1).jpg"));
         Fons2.setMaximumSize(new java.awt.Dimension(770, 477));
         Fons2.setMinimumSize(new java.awt.Dimension(770, 477));
         Fons2.setPreferredSize(new java.awt.Dimension(770, 477));
@@ -212,8 +221,9 @@ public class NouFramePrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTancarActionPerformed
-        isLoginDialogClosed = false;  // Tornar a marcar com no tancat el diàleg de login
-
+    soundPlayed = false;
+    isLoginDialogClosed = false;  // Tornar a marcar com no tancat el diàleg de login
+    playSound("C:\\Users\\Albert\\Documents\\NetBeansProjects\\ActivitatsDVI\\Galan-Albert-DVI\\ProjecteGalan\\src\\main\\java\\recursos\\audios\\AuDios.wav");
     // Amagar els panells actuals (si es necessari)
     jPanel1.setVisible(true);  // Amaga el panell principal (el de la sessió)
     jPanel3.setVisible(false);  // Amaga altres panells o panells de contingut
@@ -234,9 +244,28 @@ public class NouFramePrincipal extends javax.swing.JFrame {
     }
 
     private void LogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogInActionPerformed
-        obrirJDialogLogin();
+    
+    if (!soundPlayed) {
+        playSound("src\\main\\java\\recursos\\audios\\moto.wav");
+        soundPlayed = true;  // Marcar como reproducido
+    }        obrirJDialogLogin();
     }//GEN-LAST:event_LogInActionPerformed
+private boolean soundPlayed = false;
 
+ public void playSound(String soundFilePath) {
+    try {
+        // Cargar el archivo de audio
+        File soundFile = new File(soundFilePath);
+        AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
+        Clip clip = AudioSystem.getClip();
+        clip.open(audioIn);
+
+        // Reproducir el sonido
+        clip.start();
+    } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+        System.err.println("Error al reproducir el sonido: " + e.getMessage());
+    }
+}
     private void btnIntentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIntentsActionPerformed
         FrameRevisarIntents frameRevisarIntents = new FrameRevisarIntents();
         frameRevisarIntents.setVisible(true);

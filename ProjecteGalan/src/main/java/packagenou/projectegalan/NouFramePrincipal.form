@@ -79,8 +79,8 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="Logo1">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Albert\Documents\NetBeansProjects\ActivitatsDVI\Galan-Albert-DVI\ProjecteGalan\src\main\java\recursos\imatges\MiddleLogo (1).jpeg"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new ImageIcon(&quot;src\\main\\java\\recursos\\imatges\\MiddleLogo (1).jpeg&quot;)" type="code"/>
             </Property>
           </Properties>
           <Constraints>
@@ -123,8 +123,8 @@
         </Component>
         <Component class="javax.swing.JLabel" name="Imatge1">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Albert\Documents\NetBeansProjects\ActivitatsDVI\Galan-Albert-DVI\ProjecteGalan\src\main\java\recursos\imatges\TomeuQuelymesfort.png"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new ImageIcon(&quot;src\\main\\java\\recursos\\imatges\\TomeuQuelymesfort.png&quot;)" type="code"/>
             </Property>
             <Property name="text" type="java.lang.String" value="jLabel2"/>
           </Properties>
@@ -149,8 +149,8 @@
         </Component>
         <Component class="javax.swing.JLabel" name="Fons3">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Albert\Documents\NetBeansProjects\ActivitatsDVI\Galan-Albert-DVI\ProjecteGalan\src\main\java\recursos\imatges\fondo3 (1).jpg"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new ImageIcon(&quot;src\\main\\java\\recursos\\imatges\\fondo3 (1).jpg&quot;)" type="code"/>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[770, 477]"/>
@@ -245,8 +245,8 @@
         </Component>
         <Component class="javax.swing.JLabel" name="Image2">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Albert\Documents\NetBeansProjects\ActivitatsDVI\Galan-Albert-DVI\ProjecteGalan\src\main\java\recursos\imatges\GandalfRiguent.jpg"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new ImageIcon(&quot;src\\main\\java\\recursos\\imatges\\GandalfRiguent.jpg&quot;)" type="code"/>
             </Property>
             <Property name="text" type="java.lang.String" value="jLabel2"/>
           </Properties>
@@ -271,20 +271,20 @@
         </Component>
         <Component class="javax.swing.JLabel" name="Logo2">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Albert\Documents\NetBeansProjects\ActivitatsDVI\Galan-Albert-DVI\ProjecteGalan\src\main\java\recursos\imatges\MiddleLogoPetit.jpeg"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new ImageIcon(&quot;src\\main\\java\\recursos\\imatges\\MiddleLogoPetit.jpeg&quot;)" type="code"/>
             </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="660" y="370" width="-1" height="100"/>
+              <AbsoluteConstraints x="660" y="370" width="130" height="100"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="Fons2">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Albert\Documents\NetBeansProjects\ActivitatsDVI\Galan-Albert-DVI\ProjecteGalan\src\main\java\recursos\imatges\fondo3 (1).jpg"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new ImageIcon(&quot;src\\main\\java\\recursos\\imatges\\fondo3 (1).jpg&quot;)" type="code"/>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[770, 477]"/>

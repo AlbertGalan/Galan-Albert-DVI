@@ -201,6 +201,58 @@ public Usuari getUsuari(String email) {
 
         return user;
     }
+public ArrayList<Intents> getPendingIntentsValoracio() {
+    ArrayList<Intents> intentsList = new ArrayList<>();
+    String sql = "SELECT i.Id, i.IdUsuari, i.IdExercici, i.Timestamp_Inici, i.Timestamp_Fi, i.Videofile, "
+               + "u.Nom AS UsuariNom, e.NomExercici, r.Valoracio "
+               + "FROM Intents i "
+               + "LEFT JOIN Review r ON i.Id = r.IdIntent "
+               + "JOIN Usuaris u ON i.IdUsuari = u.Id "
+               + "JOIN Exercicis e ON i.IdExercici = e.Id "
+               + "ORDER BY i.Timestamp_Inici ASC";
+
+    try (Connection connection = getConnection();
+         PreparedStatement statement = connection.prepareStatement(sql);
+         ResultSet resultSet = statement.executeQuery()) {
+
+        while (resultSet.next()) {
+            Intents intent = new Intents();
+            intent.setId(resultSet.getInt("Id"));
+            intent.setIdUsuari(resultSet.getInt("IdUsuari"));
+            intent.setIdExercici(resultSet.getInt("IdExercici"));
+            intent.setInici(resultSet.getTimestamp("Timestamp_Inici"));
+            intent.setFi(resultSet.getTimestamp("Timestamp_Fi"));
+            intent.setVideo(resultSet.getString("Videofile"));
+
+            Integer valoracio = resultSet.getInt("Valoracio");
+            if (resultSet.wasNull()) {
+                intent.setStatus("Created");
+            } else if (valoracio < 3) {
+                intent.setStatus("Fail");
+            } else {
+                intent.setStatus("Pass");
+            }
+
+            Usuari usuari = new Usuari();
+            usuari.setId(resultSet.getInt("IdUsuari"));
+            usuari.setNom(resultSet.getString("UsuariNom"));
+
+            Exercicis exercici = new Exercicis();
+            exercici.setId(resultSet.getInt("IdExercici"));
+            exercici.setNomExercici(resultSet.getString("NomExercici"));
+
+            intent.setUsuari(usuari);
+            intent.setExercici(exercici);
+
+            intentsList.add(intent);
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(DataAcces.class.getName()).log(Level.SEVERE, "Error fetching pending intents", ex);
+    }
+
+    return intentsList;
+}
+
 
     public ArrayList<Intents> getPendingIntents() {
     ArrayList<Intents> intentsList = new ArrayList<>();

@@ -7,6 +7,7 @@ package packagenou.projectegalan;
 import java.awt.BorderLayout;
 import java.io.File;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -68,17 +69,27 @@ public class FrameUsuaris extends javax.swing.JFrame {
         userTable.setModel(userTableModel);
     }
 
-    private void loadUserIntents(int userId) {
-        intentsUsuari = dataAcces.getIntentsByUserId(userId);
-        DefaultTableModel intentTableModel = new DefaultTableModel(new String[]{"ID Intent", "Exercici", "Data Inici"}, 0);
+private void loadUserIntents(int userId) {
+    // Obtenim tots els intents amb valoració i filtrem per usuari
+    ArrayList<Intents> allIntents = dataAcces.getPendingIntentsValoracio();
+    intentsUsuari = new ArrayList<>();
 
-        for (Intents intent : intentsUsuari) {
-            intentTableModel.addRow(new Object[]{intent.getId(), intent.getExerciciNom(), intent.getInici()});
+    for (Intents intent : allIntents) {
+        if (intent.getIdUsuari() == userId) {
+            intentsUsuari.add(intent);
         }
-
-        intentTable.setModel(intentTableModel);
-        cargarTable();
     }
+
+    DefaultTableModel intentTableModel = new DefaultTableModel(new String[]{"ID Intent", "Exercici", "Data Inici", "Estat"}, 0); 
+
+    for (Intents intent : intentsUsuari) {
+        intentTableModel.addRow(new Object[]{intent.getId(), intent.getExercici().getNomExercici(), intent.getInici(), intent.getStatus()});
+    }
+
+    intentTable.setModel(intentTableModel);
+    cargarTable();
+}
+
 
     private void setupUserSelectionListener() {
         userTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
@@ -166,21 +177,26 @@ public class FrameUsuaris extends javax.swing.JFrame {
         jCamptexte = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu2 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\Albert\\Documents\\NetBeansProjects\\ActivitatsDVI\\Galan-Albert-DVI\\ProjecteGalan\\src\\main\\java\\recursos\\imatges\\MiddleLogoMesPetit.jpeg")); // NOI18N
+        jLabel8.setIcon(new ImageIcon("src\\main\\java\\recursos\\imatges\\MiddleLogoMesPetit.jpeg"));
         jLabel8.setText("jLabel8");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 570, 50, 50));
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        String text = "<html>Llorenç: Has visto Ave lo fuertes que vamos.<br>" +
-        "Avelino: No hagas comedia Lorenzo que te quedan 2 repeticiones.</html>";
+        String text = "<html>Llorenç: Has visto Ave,<br>" +
+        "lo fuertes que vamos.<br>" +
+        "<br>" +
+        "Avelino: No hagas comedia Lorenzo,<br>" +
+        "que te quedan 2 repeticiones.</html>";
         jLabel3.setText(text);
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 550, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, -1, -1));
 
         pnlVideoPlayer.setBorder(javax.swing.BorderFactory.createTitledBorder("Video Player - xxx.mp4"));
         pnlVideoPlayer.setLayout(new java.awt.BorderLayout());
@@ -266,16 +282,30 @@ public class FrameUsuaris extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 400, 380, 150));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Albert\\Documents\\NetBeansProjects\\ActivitatsDVI\\Galan-Albert-DVI\\ProjecteGalan\\src\\main\\java\\recursos\\imatges\\lorenzoiave.png")); // NOI18N
+        jLabel2.setIcon(new ImageIcon("src\\main\\java\\recursos\\imatges\\lorenzoiave.png"));
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 190, 190));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Albert\\Documents\\NetBeansProjects\\ActivitatsDVI\\Galan-Albert-DVI\\ProjecteGalan\\src\\main\\java\\recursos\\imatges\\Gondor.jpg")); // NOI18N
+        jLabel1.setIcon(new ImageIcon("src/main/java/recursos/imatges/Gondor.jpg")
+        );
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-460, 0, 1570, 630));
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
+        jMenu2.setText("File");
 
-        setJMenuBar(jMenuBar1);
+        jMenu1.setText("Exit and Help");
+
+        jMenuItem3.setText("About");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
+
+        jMenu2.add(jMenu1);
+
+        jMenuBar2.add(jMenu2);
+
+        setJMenuBar(jMenuBar2);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -335,6 +365,18 @@ public class FrameUsuaris extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jbtnDeleteIntentActionPerformed
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        String contingut = "El disseny de l'aplicació està basada amb \n" +
+        "la saga de parodies de Panareta.\n" +
+        "Algunes de les imatges vistes estàn generades amb IA:\n" +
+        "He emprat: Pixlr, Ideogram, Stablediffusion\n" +
+        "He emprat audios de la aplicació oficial de Panareta Films:\n" +
+        "https://play.google.com/store/apps/details?id=com.mitir.panereta.pfilms \n" +
+        "(Link només funcional a dispositius mòvils)";
+        JOptionPane.showMessageDialog(this, contingut);
+
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -349,7 +391,9 @@ public class FrameUsuaris extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JLabel jPuntuacio;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

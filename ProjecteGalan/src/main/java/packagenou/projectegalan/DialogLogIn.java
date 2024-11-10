@@ -5,6 +5,7 @@
 package packagenou.projectegalan;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import models.Usuari;
 import recursos.DataAcces;
@@ -106,7 +107,7 @@ public class DialogLogIn extends java.awt.Dialog {
         jLabel4.setText("I podràs fer pilates amb en Matrix");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Albert\\Documents\\NetBeansProjects\\ActivitatsDVI\\Galan-Albert-DVI\\ProjecteGalan\\src\\main\\java\\recursos\\imatges\\EnMatrixGros.png")); // NOI18N
+        jLabel7.setIcon(new ImageIcon("src\\main\\java\\recursos\\imatges\\EnMatrixGros.png"));
         jLabel7.setText("jLabel7");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 300, 300));
 
@@ -114,11 +115,11 @@ public class DialogLogIn extends java.awt.Dialog {
         jLabel5.setText("Hola guapo, has encalentit bé?");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, -1, -1));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\Albert\\Documents\\NetBeansProjects\\ActivitatsDVI\\Galan-Albert-DVI\\ProjecteGalan\\src\\main\\java\\recursos\\imatges\\MiddleLogoMesPetit.jpeg")); // NOI18N
+        jLabel8.setIcon(new ImageIcon("src\\main\\java\\recursos\\imatges\\MiddleLogoMesPetit.jpeg"));
         jLabel8.setText("jLabel8");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 50, 50));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Albert\\Documents\\NetBeansProjects\\ActivitatsDVI\\Galan-Albert-DVI\\ProjecteGalan\\src\\main\\java\\recursos\\imatges\\fondo3 (1).jpg")); // NOI18N
+        jLabel6.setIcon(new ImageIcon("src\\main\\java\\recursos\\imatges\\fondo3 (1).jpg"));
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 400));
 
         add(jPanel1, java.awt.BorderLayout.CENTER);
@@ -130,8 +131,10 @@ public class DialogLogIn extends java.awt.Dialog {
      * Closes the dialog
      */
     private void closeDialog(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_closeDialog
-        setIsClosed(true);
-        dispose();
+    // Indicar que el diàleg se ha cerrado
+    setIsClosed(true);
+    // Dispose para cerrar el JDialog
+    dispose();
     }//GEN-LAST:event_closeDialog
 public void setIsClosed(boolean isClosed) {
     this.isClosed = isClosed;
@@ -149,15 +152,18 @@ public void setIsClosed(boolean isClosed) {
             if (result.verified) {
                 JOptionPane.showMessageDialog(this, "Amaga sa testosterona " + usuari.getNom() + " que això pareix Melilla!");
                 listener.onLogInSuccessful(); 
+                nouFramePrincipal.playSound("src\\main\\java\\recursos\\audios\\Guardau.wav");
                 nouFramePrincipal.setTrainer_id(da.getUserId(txtEmailLogin.getText()));
                 setIsClosed(true);  // Indica que el diàleg s'ha tancat correctament
                 dispose();  // Tancar el diàleg
             } else {
                 JOptionPane.showMessageDialog(this, "ERROR Contrassenya: Que no pots passar Batuadeu!");
+                nouFramePrincipal.playSound("src\\main\\java\\recursos\\audios\\Batuadeu.wav");
                 btnLogin.setEnabled(true); // Reactiva el botó si hi ha error
             }
         } else {
             JOptionPane.showMessageDialog(this, "ERROR Usuari: Qui ets tu Xac Norris? No hi ets per enlloc!");
+            nouFramePrincipal.playSound("src\\main\\java\\recursos\\audios\\XacNorris.wav");
             btnLogin.setEnabled(true); // Reactiva el botó si hi ha error
         }
     } catch (Exception e) {
